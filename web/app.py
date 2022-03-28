@@ -43,30 +43,29 @@ def person_detail():
     api_url = "https://petstore.swagger.io/v2/pet"
     id = request.form['id']
     name = request.form['name']
-    new_data = (id, name)
-    {
-        "id": id,
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": name,
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    }
+    new_data = {
+                    "id": id,
+                    "category": {
+                        "id": 0,
+                        "name": "string"
+                    },
+                    "name": name,
+                    "photoUrls": [
+                        "string"
+                    ],
+                    "tags": [
+                        {
+                            "id": 0,
+                            "name": "string"
+                        }
+                    ],
+                    "status": "available"
+                }
     response = requests.post(api_url, json=new_data)
     print(response.json())
     return render_template('pet_detail.html', value=(id, name))
 
-
+'''
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
@@ -75,6 +74,6 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500
-
+'''
 if __name__ == '__main__':
     app.run()
