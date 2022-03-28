@@ -22,7 +22,9 @@ def person():
 def pets(status: str = "available"):
     url2 = "https://petstore.swagger.io/v2/pet/findByStatus?status={0}".format(status)
     response = requests.get(url2)
+    print(response.json())
     data_pets = [(i['id'], i['name'], i['status'], i['photoUrls']) for i in response.json()]
+    print(data_pets)
     return render_template('pets.html', value=data_pets)
 
 
@@ -32,7 +34,7 @@ def pet_update(id_pet):
 
 
 @app.route('/pet_delete/<id_pet>', methods=['GET'])
-def pet_update(id_pet):
+def pet_delete(id_pet):
     return render_template('pet_detail.html', id_pet=id_pet)
 
 
