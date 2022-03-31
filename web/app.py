@@ -46,7 +46,7 @@ def pet_detail():
 
 
 @app.route('/pet', methods=['GET'])
-def pets(status: str = "available"):
+def pets(status: str = "pending"):
     url2 = "https://petstore.swagger.io/v2/pet/findByStatus?status={0}".format(status)
     response = requests.get(url2)
     data_pets = [(i['id'], i['name'], i['status']) for i in response.json()]
@@ -82,7 +82,7 @@ def pet_update_detail():
                         ],
                         "status": status
                     }
-    response = requests.post(api_url_update, json=update_data)
+    response = requests.put(api_url_update, json=update_data)
     return render_template('pet_detail.html', value=(id, name, status))
 
 
