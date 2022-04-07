@@ -92,6 +92,21 @@ def pet_delete(id_pet):
     response = requests.delete(api_url)
     return render_template('pet_detail.html', value="Delete successfully")
 
+@app.route('/store', methods=['GET'])
+def show_store():
+    return render_template("store.html")
+
+@app.route('/store/inventory')
+def show_inventory():
+    url = "https://petstore.swagger.io/v2/store/inventory"
+    response = requests.get(url)
+    data = [( i, response.json()[i] ) for i in response.json()]
+    # print(data)
+    return render_template('inventory.html', value = data)
+
+
+
+
 
 
 '''

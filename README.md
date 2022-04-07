@@ -1,2 +1,4 @@
 # RestAPI_Client
-REST API Client
+Antonio Jose Patiño Torres. T00056470
+
+**Arquitectura de software - UTB**
