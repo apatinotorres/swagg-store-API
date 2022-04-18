@@ -168,6 +168,13 @@ def create_user():
 def user():
     return render_template('user.html')
 
+@app.route('/delete_user', methods=['POST'])
+def delete_user():
+    username = request.form['username']
+    print(username)
+    url = "https://petstore.swagger.io/v2/user/{0}".format(username)
+    response = requests.delete(url)
+    return render_template('delete_user.html', value='Usuario Eliminado')
 
 @app.route('/user_log', methods=['GET', 'POST'])
 def user_log():
