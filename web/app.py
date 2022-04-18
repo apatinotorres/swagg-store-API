@@ -1,7 +1,7 @@
 import requests
 from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
-
+import random
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -122,7 +122,7 @@ def place_order(id_pet):
     response = requests.post(api_url_order, json=orders)
     return render_template('place_order.html', value=orders)
 
-@app.route('/store/find_order')
+@app.route('/store/find_order', methods=['POST'])
 def find_order():
     order_id = request.form['id']
     api_url_find_order = "https://petstore.swagger.io/v2/store/order/{0}".format(order_id)

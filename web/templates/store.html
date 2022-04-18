@@ -4,8 +4,30 @@
 
 
 <a href="/store/inventory" class="btn btn-success float-right">Mostar inventario</a>
-<a href="/store/find_order" class="btn btn-success float-right">Buscar orden por ID de la mascota</a>
+
+<br>
+
+<h2> Buscar su orden por ID </h2>
+
+   <form action="/store/find_order" method="post">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_id">Id</span>
+                    <input type="text" class="form-control" name="id" aria-label="Sizing example input" aria-describedby="inputGroup_id">
+                </div>
+                <br >
+                <input class="btn btn-primary" type="submit" name="form" value="Submit" />
+            </form>
+		<br>
+
+<h2> Eliminar orden por ID </h2>
 
 
-
+<form action="/order_delete" method="post">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_id">Id</span>
+                    <input type="text" class="form-control" name="id" aria-label="Sizing example input" aria-describedby="inputGroup_id">
+                </div>
+                <br >
+                <input class="btn btn-primary" type="submit" name="form" value="Submit" />
+            </form>
 {% endblock %}
