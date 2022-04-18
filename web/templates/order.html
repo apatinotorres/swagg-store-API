@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<h1>Digite una ID de order para encontrar su pedido</h1>
+
+
+<form action="/store/orderid" method="post">
+
+
+<div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_name">ID</span>
+                    <input type="text" class="form-control" name="name" aria-label="Sizing example input" aria-describedby="inputGroup_name">
+                </div>
+<input class="btn btn-primary" type="submit" name="form" value="Submit" />
+</form>
+{% endblock %}
